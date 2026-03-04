@@ -22,3 +22,4 @@ spec:
       branch: fflux
   update:
     strategy: Setters
+    path: ./dev/k8s-manifest    
