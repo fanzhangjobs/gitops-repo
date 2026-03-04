@@ -16,7 +16,6 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-      #messageTemplate: 'chore: self-update backend image to {{range .UpdatedImages}}{{.}}{{end}}'
       messageTemplate: 'chore: self-update backend image'   
     push:
       branch: fflux
