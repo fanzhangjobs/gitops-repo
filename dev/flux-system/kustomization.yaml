@@ -1,5 +1,20 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
+  #kind: Kustomization
+  #resources:
+  #- gotk-components.yaml
+  #- gotk-sync.yaml
 kind: Kustomization
-resources:
-- gotk-components.yaml
-- gotk-sync.yaml
+metadata:
+  name: flux-system
+  namespace: flux-system
+spec:
+  interval: 10m
+  path: ../k8s-manifest   # point to the folder with your secrets and deployments
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-gpg
