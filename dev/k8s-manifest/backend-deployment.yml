@@ -4,7 +4,7 @@ metadata:
   name: backend-deployment
   namespace: bmo
 spec:
-  replicas: 3 
+  replicas: 3
   selector:
     matchLabels:
       app: backend
@@ -17,7 +17,7 @@ spec:
         - name: acr-secret
       containers:
         - name: backend
-          image: bmodemoacr.azurecr.io/backendapp:v1.0.0 # {"$imagepolicy": "flux-system:backend-policy"}
+          image: bmodemoacr.azurecr.io/backendapp:v2.0.0 # {"$imagepolicy": "flux-system:backend-policy"}
           ports:
             - containerPort: 5000
           readinessProbe:
@@ -43,6 +43,6 @@ spec:
     app: backend
   ports:
     - protocol: TCP
-      port: 80        # ClusterIP service port
+      port: 80 # ClusterIP service port
       targetPort: 5000
   type: ClusterIP
